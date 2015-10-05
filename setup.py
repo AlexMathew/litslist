@@ -8,6 +8,7 @@ except ImportError:
 
 
 readme = open('README.md').read()
+requirements = open('requirements.txt').read().split('\n')
 
 setup(
     name='litslist',
@@ -26,7 +27,7 @@ setup(
     zip_safe=False,
     keywords=['els'],
     entry_points={
-        'console_scripts': ['litslist = litslist.cmd.runCLI']
+        'console_scripts': ['litslist = litslist.cmd:runCLI']
     },
     classifiers=[
         'Development Status :: 3 - Alpha',
