@@ -15,6 +15,7 @@ def run_create(count):
 		sets[filename[:filename.index('.')].title()] = content
 	if not os.path.exists('Lists'):
 		os.mkdir('Lists')
+	break_point = count
 	for i in xrange(count):
 		try:
 			f = open(os.path.join(os.curdir, 'Lists', str(i+1) + '.txt'), 'w')
@@ -26,4 +27,14 @@ def run_create(count):
 		except IndexError:
 			break_point = i
 			break
+	try:
+		print sets
+		for category, category_list in sets.items():
+			f = open(os.path.join(os.curdir, 'Remaining_' + category + '.txt'), 'w')
+			file_content = "\n".join(category_list[break_point:])
+			f.write(file_content)
+			f.close()
+	except NameError, e:
+		print e
+		pass
 	return
