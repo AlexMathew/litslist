@@ -21,7 +21,7 @@ def runCLI():
     """
     args = docopt(__doc__, version='0.1.0')
     try:
-        commands.run_create(args['<count>'])
+        commands.run_create(int(args['<count>']))
     except Exception as e:
         print('\n', e, '\n')
 
