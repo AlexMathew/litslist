@@ -1,6 +1,7 @@
 """
 Usage:
-    litslist create
+    litslist (-h | --help | --version)
+    litslist create <count>
 
 Options:
     -h, --help
@@ -20,7 +21,7 @@ def runCLI():
     """
     args = docopt(__doc__, version='0.1.0')
     try:
-        commands.run_create()
+        commands.run_create(args['<count>'])
     except Exception as e:
         print('\n', e, '\n')
 
